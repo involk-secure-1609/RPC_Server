@@ -1,2 +1,2 @@
-import RabbitMQClient from "./src/RabbitMq/client";
+import RabbitMQClient from "./RabbitMq/client";
 RabbitMQClient.initialize();

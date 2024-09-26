@@ -3,8 +3,8 @@ export default class MessageHandler {
   static async handle(
     operation: string,
     data: any,
+    correlationId: string,
     replyTo: string,
-    correlationId: string
   ) {
     let res = {};
     const { num1, num2 } = data;

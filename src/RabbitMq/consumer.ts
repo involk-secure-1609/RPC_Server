@@ -1,6 +1,6 @@
 import { Channel, ConsumeMessage } from "amqplib";
-import config from "../config";
 import MessageHandler from "../messageHandler";
+
 export default class Consumer {
   constructor(private channel: Channel, private rpcQueue: string) {}
 
@@ -15,6 +15,7 @@ export default class Consumer {
           if (!correlationId || !replyTo) {
             console.log("Missing properties...");
           } else {
+            console.log("Consumed", JSON.parse(msg.content.toString()));
             await MessageHandler.handle(
               operation,
               JSON.parse(msg.content.toString()),
